@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnose - HealthCare+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #0a7cff;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        input, select {
+            padding: 10px;
+            width: 250px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>HealthCare+</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="diagnose.html">Diagnose</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Symptom Checker</h1>
+    <p>Select your symptoms to get a basic health suggestion</p>
+
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <br>
+
+    <select id="symptom">
+        <option value="">-- Select Symptom --</option>
+        <option value="fever">Fever</option>
+        <option value="cough">Cough</option>
+        <option value="headache">Headache</option>
+        <option value="stomach">Stomach Pain</option>
+    </select>
+
+    <br>
+
+    <button onclick="diagnose()">Check</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<footer>
+    <p>© 2026 HealthCare+. All rights reserved.</p>
+</footer>
+
+<script>
+function diagnose() {
+    let symptom = document.getElementById("symptom").value;
+    let result = document.getElementById("result");
+
+    if(symptom === "fever") {
+        result.innerHTML = "You may have a viral infection. Drink fluids and rest.";
+    }
+    else if(symptom === "cough") {
+        result.innerHTML = "Possible cold or throat infection.";
+    }
+    else if(symptom === "headache") {
+        result.innerHTML = "Could be stress or dehydration.";
+    }
+    else if(symptom === "stomach") {
+        result.innerHTML = "Possible indigestion or food-related issue.";
+    }
+    else {
+        result.innerHTML = "Please select a symptom.";
+    }
+}
+</script>
+
+</body>
+</html>
